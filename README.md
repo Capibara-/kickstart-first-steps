@@ -85,6 +85,54 @@
       * It is possible to use pattern matching in for expressions to iterate
           over all key-value pairs os a `Map[T1,T2]`.
 
+* **Actors (DEPRECATED)**:
+  		
+  	* Analogous to Thread in Java, implement run() and it will run in it's own
+        thread.
+
+   * Defined as object.
+   
+   * It is also possible to `import scala.actors.Actor._` and do:
+   
+	    ```
+          val myObj = actor {
+            // Do work.
+          }
+		```
+		
+   * To define a handler function for message receiving for an actor
+        use receive() that takes a function f: Any -> Unit and issue a message
+        to an actor like this:
+
+          `myActor ! myMsg`
+
+        the message itself can be of any type.
+
+   * Every actor has an inbox (message queue). The inbox is inherently
+        thread safe. The ! method simply inserts a message into the inbox
+        and returns. It is not good practice to pass as argument to ! a
+        mutable object since it will require synchronization on that object.
+
+   * Since an actor has a mutable state, if you pass an argument to ! that
+        is not handled in the case match that is the body of receive it will
+        wait in the inbox until timeout or until the actor changes behaviour
+        and is able to handle that type.
+
+   * To get a `Future[T]` as an immediate response back from an Actor use:
+          `myActor ? myMsg'
+                    
+   * In order to get immidiate (blocking) result use:
+  
+	```
+  		implicit val timeout = Timeout(5 seconds)
+  		val f1 = myActor ? myMsg
+  		Await.result(f1, timeout.duration)
+	```
+	
+	* To send a message back to the sender use `sender ! returnVal` inside the receive method.
+
+
+
 * **Future**:
 
   * Calling map() on a `Future[T]` does not block but returns a new `Future[T1]`,
@@ -94,7 +142,8 @@
 
   * Interesting callback methods: `onComplete, onFailure, onSuccess`.
 
-  * Interesting methods: `isCompleted`.      
+  * Interesting methods: `isCompleted`.
+  
           
 * A trait can be used to extend or modify behavior of a class quite easily, simply
     override the desired function (when modifying behavior) with the desired implementation
@@ -103,3 +152,24 @@
         `new MyClass with MyTrait1 with MyTrait2`
 
 * A companion object has access to the class's private members and vice-versa.
+
+* It is possible to import objects (which will bring all methods and members
+    into the namespace):
+	
+	```
+		val obj = new MyObject
+		import obj._
+	```
+	
+    This also works for singleton objects.
+    
+* You can rename a package when importing (like python's "import A.b as B"): `import A.{ b => B }`. This will hide the original name so A.b is no longer accessible.
+
+* It is also possible to exclude a specific sub-package from being imported when importing the entire package: `import A.{WilNotBeImported => _, _}`.
+
+* When working with `Option[T]` foreach is eagerly evaluated and does not return
+    a value while map() is lazily evaluated and does return a value.
+    
+* It is possible to define functions inside other classes/functions and avoid creating a private method.
+
+
