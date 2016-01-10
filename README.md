@@ -1,4 +1,5 @@
 <h1>First steps in Scala</h1>
+
 * **Case classes**:
     * Free factory method (`MyClass.apply(args) = { new MyClass(args) }`), can instantiate using:
    		1. `val v = MyClass(argument)`
@@ -18,8 +19,8 @@
 	    ```
           
 
-    * The companion object singleton also gets a method called upapply()
-        which returns a Tuple that contains all of the fields of that object
+    * The companion object singleton also gets a method called `upapply()`
+        which returns a `Tuple` that contains all of the fields of that object
         (up to 22 fields because `Function22/Tuple22`).
 
     * The companion object singleton also contains a method called tupled()
@@ -36,7 +37,7 @@
           using that specific case (can be used in conjunction with wildcard).
 
       * When matching a sequence pattern it is idiomatic in Scala to use
-          "::" (rather than constructor matching with a wildcard).
+          `::` (rather than constructor matching with a wildcard).
 
       * Using tuple patterns it is possible to de-structure a list (or tuple)
           using:
@@ -135,15 +136,38 @@
 
 * **Future**:
 
-  * Calling map() on a `Future[T]` does not block but returns a new `Future[T1]`,
+  * Calling `map()` on a `Future[T]` does not block but returns a new `Future[T1]`,
       you need to either specify the execution context (thread pool being used) or
       import `scala.concurrent.ExecutionContext.Implicits.global` for the global thread
       pool to be used implicitly.
-
-  * Interesting callback methods: `onComplete, onFailure, onSuccess`.
-
-  * Interesting methods: `isCompleted`.
   
+  * Calling `future` on a piece of code tells the Scala scheduler to run that code
+    on a different thread. What returns is a box that will contain the value of
+    the computation SOMETIME later.
+  
+  * A Future can be in 1 of three states: not done yet, done, threw an exception.
+  
+  * Don't use .get() on a Future, it can cause a blocking operation.
+
+  * Future offers a few tools that enable work without blocking:
+    .map(), .flatMap(), .filter(), onComplete(), onSuccess(), onFailure().
+    
+  * Every instance of `Future[T]` has an instance of `Promise[T]`.
+
+  * `Promise[T]` has 2 functions, 1 for success and 1 for failure, that are called
+    when the computation is finished. This in turn calls then `onSuccess/onFailure` 
+    and `onCompleted` of the associated `Future[T]`. These success and failure 
+    functions are called when using `future()` on a piece of code.
+    
+  * A `.map()` on a `Future[T]` that threw an exception during computations will return the same `Future[T]` filled with the exception.
+  
+  * A `Future[T]` can be in 1 of three states: not done yet, done, threw an exception.
+  
+  * Future offers a few tools that enable work without blocking:
+    `.map(), .flatMap(), .filter(), onComplete(), onSuccess(), onFailure().`
+
+  * A .map() on a Future[T] that threw an exception during computations will
+    return a Future[T] filled with the exception.
           
 * A trait can be used to extend or modify behavior of a class quite easily, simply
     override the desired function (when modifying behavior) with the desired implementation
@@ -168,8 +192,17 @@
 * It is also possible to exclude a specific sub-package from being imported when importing the entire package: `import A.{WilNotBeImported => _, _}`.
 
 * When working with `Option[T]` foreach is eagerly evaluated and does not return
-    a value while map() is lazily evaluated and does return a value.
+    a value while `map()` is lazily evaluated and does return a value.
     
 * It is possible to define functions inside other classes/functions and avoid creating a private method.
+
+* A `foreach` with a lambda function that has a case match in it that covers
+    the entire domain of the is identical to a `foreach` without a lambda but with
+    a case match that covers the entire domain (partial function to total
+    function conversion).
+    
+* Calling `future` on a piece of code tells the Scala scheduler to run that code
+    on a different thread. What returns is a box that will contain the value of
+    the computation SOMETIME later.
 
 
