@@ -30,4 +30,4 @@
 * Refactor This - `Ctrl + T`
 * Run Class in Scope - `Ctrl + Shift + R`
 * Install iPaste!!
-* Improving IntelliJ - [https://wix.dapulse.com/posts/2268729]()
+* Improving IntelliJ - [https://wix.dapulse.com/posts/2268729](https://wix.dapulse.com/posts/2268729)
