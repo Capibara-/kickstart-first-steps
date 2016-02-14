@@ -1,5 +1,5 @@
 <h1>Kickstart First Steps</h1>
 
-* [First Steps In Scala]()
+* [First Steps In Scala](https://github.com/Capibara-/kickstart-first-steps/blob/master/FirstStepsInScala.md)
 * [IntelliJ Workshop with Max Ribakov](https://github.com/Capibara-/kickstart-first-steps/blob/master/IntelliJ-WorkShop.md)
-* [Useful Commands]()
+* [Useful Commands](https://github.com/Capibara-/kickstart-first-steps/blob/master/UsefulCommands.md)
