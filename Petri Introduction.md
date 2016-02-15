@@ -1,5 +1,7 @@
-# Petri Introduction
+# Petri
+## Introduction
 
+* [Petri FAQ](https://kb.wixpress.com/pages/viewpage.action?title=Petri&spaceKey=hoopoe)
 * Petri can be used for feature toggles (by devs) and for A/B testing (product).
 * Typical flow after opening an experiment:
     * Eligibility for a given experiment is checked.
@@ -22,7 +24,6 @@
     * A/B tests persist via cookie or via DB for registered users.
     * Feature Toggles have no BI or persistence.
     * FTs do not log to BI, need to track errors.
-
 * Filters
     * Enables gradula exposure.
     * All sorts of filters exists such as population filters, wix users only, wix employees.
@@ -40,4 +41,14 @@
 * A is the old behaviour and B is the new behaviour (important for statistical reasons).
 * Editor experiments that affect users cannot be used as experiments on public view for users of users.
 * When running an experiment on a public view the information is not stored via cookie (since it is a user site), therefore you need to set a unique identifier for a user (such as customerID in E-Comm).
-* 
+
+## Defining an Experiment In Guineapig
+* When defining an Experiment via guineapig a Scope and a Product are interchangeable.
+* Always add a detailed description when creating an experiment.
+* The creators of experiments/specs that are about to be closed or are stale are informed of this via email.
+* It is possible to duplicate an experiment.
+* A history of the experiment changes is saved and can be viewed via guineapig.
+* Under `Experiment Report` is it possible to see how many users got A or B and a breakdown by specific servers.
+* It is possible by using the `Override Parameters` to force an experiment for a given session (good for QA/debugging), simply copy the parameters to the request URL.
+* Under `View Specs` you can see all available specs and also delete them (good for debugging problems).
+* When a user overlaps for 2 test groups (such as a US user that uses EN language) it is not possible to know which experiment will run (assuming both experiments share the same spec).
