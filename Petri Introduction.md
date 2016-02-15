@@ -1,4 +1,4 @@
-# Petri
+# Working with Petri
 ## Introduction
 
 * [Petri FAQ](https://kb.wixpress.com/pages/viewpage.action?title=Petri&spaceKey=hoopoe)
@@ -32,19 +32,19 @@
     * DO NOT USE `In Meta Sites`.
     
 * Some pages (like My Account) can only run experiments for registered users.
-* To define an experiment extend the `SpecDefiniion` class and override `customize` using the `ExperimentSpecBuilder`.
+* To define a spec extend the `SpecDefiniion` class and override `customize` using the `ExperimentSpecBuilder`.
 * When calling `laboratory.condectExperiment` the result is logged to BI.
 * It is possible to call all experiments for a scope using `laboratory.conductAllInScope` (**DO NOT CONDUCT FOR A SCOPE THAT IS NOT YOURS!**).
 * Note that the call to `conductExperiment` does not have to be called when the page is loaded (depending on the experiment).
 * Whenever a GA is done lifecycle triggers a call to `sync-specs` that will scan the JAR and add all specs to the main BI logging system.
-* An experiment can be created in Guineapig (both A/B tests and FTs).
+* Experiments can be created in Guineapig (both A/B tests and FTs).
 * The system ensures a consistent experience for a given user, therefore it is not possible to un-expand the scope of an experiment.
-* A is the old behaviour and B is the new behaviour (important for statistical reasons).
+* The convention is that `A` is the old behaviour and `B` is the new behaviour (important for statistical reasons).
 * Editor experiments that affect users cannot be used as experiments on public view for users of users.
 * When running an experiment on a public view the information is not stored via cookie (since it is a user site), therefore you need to set a unique identifier for a user (such as customerID in E-Comm).
 
 ## Defining an Experiment In Guineapig
-* When defining an Experiment via guineapig a Scope and a Product are interchangeable.
+* When defining an Experiment via guineapig the terms Scope and Product are interchangeable.
 * Always add a detailed description when creating an experiment.
 * The creators of experiments/specs that are about to be closed or are stale are informed of this via email.
 * It is possible to duplicate an experiment.
