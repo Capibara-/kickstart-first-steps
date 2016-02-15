@@ -29,5 +29,5 @@
 * Extract Meethod - `Cmd + Alt + M`
 * Refactor This - `Ctrl + T`
 * Run Class in Scope - `Ctrl + Shift + R`
-* Install iPaste!!
+* Install [Paste](https://itunes.apple.com/us/app/paste-clipboard-history-manager/id967805235?mt=12)!!
 * Improving IntelliJ - [https://wix.dapulse.com/posts/2268729](https://wix.dapulse.com/posts/2268729)
