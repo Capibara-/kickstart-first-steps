@@ -17,7 +17,8 @@
     * Definition of a test key and scope (who is the user run for).
     * Created by devs in client or server code.
 * Experiment:
-    * Conducted in code by devs.
+    * Created in Guineapig system (by either devs or PMs).
+    * Conducted in code.
 * A/B Test vs Feature Toggle:
     * Feature toggle - test a specific feature for a given population.
     * A/B Test - Random selection of either version A or version B with given probabilities.
@@ -29,7 +30,7 @@
     * All sorts of filters exists such as population filters, wix users only, wix employees.
     * Custom criterion filters can also be defined.
     * Exclusion filters can be comnstructed by geolocation.
-    * DO NOT USE `In Meta Sites`.
+    * **DO NOT USE** `In Meta Sites`.
     
 * Some pages (like My Account) can only run experiments for registered users.
 * To define a spec extend the `SpecDefiniion` class and override `customize` using the `ExperimentSpecBuilder`.
