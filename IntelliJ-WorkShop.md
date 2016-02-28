@@ -21,14 +21,14 @@
 * Find - `Cmd + F`
 * Find and Replace - `Cmd + R`
 * Find Anywhere - `Cmd + Shift + F`
-* Show/Hide Fine - `Cmd + 3`
+* Show/Hide Find Pane - `Cmd + 3`
 * Extend/Shrink Selection - `Alt + Up/Down`
 * Close IntelliJ - `Cmd + Q`
 * Close Tab - `Cmd + W`
 * Cycle Tabs - `Cmd + Shift + [ OR ]`
 * Extract Variable - `Cmd + Alt + V`
 * Introduce Parameter - `Cmd + Alt + P`
-* Extract Meethod - `Cmd + Alt + M`
+* Extract Method - `Cmd + Alt + M`
 * Refactor This - `Ctrl + T`
 * Run Class in Scope - `Ctrl + Shift + R`
 * Install [Paste](https://itunes.apple.com/us/app/paste-clipboard-history-manager/id967805235?mt=12)!!
