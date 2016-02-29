@@ -1,6 +1,8 @@
 <h1>IntelliJ Workshop with Max Ribakov</h1>
 
 * Goto Definition - `Cmd + B`
+* Add bookmark - `F3`
+* Bookmarks window - `Cmd + F3`
 * Recent Files - `Cmd + E`
 * Paramter List (for functions) - `Cmd + P`
 * Generate (class, method, etc...) - `Cmd + N`
