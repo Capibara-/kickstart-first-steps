@@ -3,6 +3,7 @@
 * Goto Definition - `Cmd + B`
 * Recent Files - `Cmd + E`
 * Paramter List (for functions) - `Cmd + P`
+* Generate (class, method, etc...) - `Cmd + N`
 * Prev/Next TODO (in TODO window) - `Cmd + Alt + Up/Down`
 * Back and Forward - `Cmd + Alt + Left/Right`
 * Find File - `Cmd + Shift + O`
