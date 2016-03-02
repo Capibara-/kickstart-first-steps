@@ -13,6 +13,7 @@
 * Find Implementations (class/method) - `Cmd + Alt + B`
 * Quick Find Usages - `Cmd + Alt + F7`
 * Find Usages - `Alt + F7`
+* Optimize Imports - `Ctrl + Alt + O`
 * Show Diff (In VC window) - `Cmd + D`
 * Commit Changes (In VC window) - `Cmd + K`
 * Close Window (In VC window) - `Cmd + W`
