@@ -5,3 +5,4 @@
 * [Useful Commands](https://github.com/Capibara-/kickstart-first-steps/blob/master/UsefulCommands.md)
 * [Working with Petri](https://github.com/Capibara-/kickstart-first-steps/blob/master/Petri%20Introduction.md)
 * [Midnight Commander Shortcuts](https://github.com/Capibara-/kickstart-first-steps/blob/master/MC_Shortcuts.md)
+* [Useful Scripts](https://github.com/Capibara-/kickstart-first-steps/tree/master/scripts/)
