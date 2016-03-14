@@ -1,0 +1,2 @@
+#!/bin/sh
+java -jar -Xmx1024m ~/Downloads/burpsuite_free_v1.6.32.jar
