@@ -1,4 +1,4 @@
-## Staging
+## Staging Servers
 
 * To ssh use: `ssh root@my.staging.server.com -p41278`, password is `NEVERPUTREALPASSWORDONGITHUB`.
 * All running projects are deployed in (or symlinked to): `/opt/wix/project_name`:

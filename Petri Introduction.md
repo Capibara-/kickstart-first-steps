@@ -3,35 +3,41 @@
 
 * [Petri FAQ](https://kb.wixpress.com/pages/viewpage.action?title=Petri&spaceKey=hoopoe)
 * Petri can be used for feature toggles (by devs) and for A/B testing (product).
-* Typical flow after opening an experiment:
-    * When a user visits the site eligibility for a given experiment is checked.
-    * 50% chance to get either A or B by each user.
-    * Result is logged for BI.
-    * Conversion rate is measured from aggregated data and analyzed.
-    * Expand the experiment scope or change the experiment probabilities.
-    * Make a decision, either 100% for A or B for A/B test or ON/OFF for FTs.
-    * Remove the code related to the experiment.
-    * Close the experiment (via guineapig) and delete the spec.
 * There are 2^N different redering possibilities for a user, either A or B for each experiment.
-* Specs:
-    * Definition of a test key and scope (who is the user run for).
-    * Created by devs in client or server code.
-* Experiment:
-    * Created in Guineapig system (by either devs or PMs).
-    * Conducted in code.
-* A/B Test vs Feature Toggle:
-    * Feature toggle - test a specific feature for a given population.
-    * A/B Test - Random selection of either version A or version B with given probabilities.
-    * A/B tests persist via cookie or via DB for registered users.
-    * Feature Toggles have no BI or persistence.
-    * FTs do not log to BI, need to track errors.
-* Filters:
-    * Enables gradula exposure.
-    * All sorts of filters exists such as population filters, wix users only, wix employees.
-    * Custom criterion filters can also be defined.
-    * Exclusion filters can be comnstructed by geolocation.
-    * **DO NOT USE** `In Meta Sites`.
+
+### Specs:
+* Definition of a test key and scope (who is the user run for).
+* Created by devs in client or server code.
+
+### Experiment:
+* Created in Guineapig system (by either devs or PMs).
+* Conducted in code.
+
+### Filters:
+* Enables gradual exposure.
+* All sorts of filters exists such as population filters, wix users only, wix employees.
+* Custom criterion filters can also be defined.
+* Exclusion filters can be comnstructed by geolocation.
+* **DO NOT USE** `In Meta Sites`.
     
+### A/B Test vs Feature Toggle:
+* Feature toggle - test a specific feature for a given population.
+* A/B Test - Random selection of either version A or version B with given probabilities.
+* A/B tests persist via cookie or via DB for registered users.
+* Feature Toggles have no BI or persistence.
+* FTs do not log to BI, need to track errors.
+ 
+### Typical flow after opening an experiment:
+* When a user visits the site eligibility for a given experiment is checked.
+* 50% chance to get either A or B by each user.
+* Result is logged for BI.
+* Conversion rate is measured from aggregated data and analyzed.
+* Expand the experiment scope or change the experiment probabilities.
+* Make a decision, either 100% for A or B for A/B test or ON/OFF for FTs.
+* Remove the code related to the experiment.
+* Close the experiment (via guineapig) and delete the spec.
+
+### Misc
 * Some pages (like My Account) can only run experiments for registered users.
 * To define a spec extend the `SpecDefiniion` class and override `customize` using the `ExperimentSpecBuilder`.
 * When calling `laboratory.condectExperiment` the result is logged to BI.
