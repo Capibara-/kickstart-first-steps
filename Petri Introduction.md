@@ -3,7 +3,7 @@
 
 * [Petri FAQ](https://kb.wixpress.com/pages/viewpage.action?title=Petri&spaceKey=hoopoe)
 * Petri can be used for feature toggles (by devs) and for A/B testing (product).
-* There are 2^N different redering possibilities for a user, either A or B for each experiment.
+* There are 2^N different rendering possibilities for a user, either A or B for each experiment.
 
 ### Specs:
 * Definition of a test key and scope (who is the user run for).
