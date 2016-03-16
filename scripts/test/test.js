@@ -1,1 +1,1 @@
-alert("hey");
+function supbaby() { alert('hey');}
