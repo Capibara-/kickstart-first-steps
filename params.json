@@ -1,0 +1,7 @@
+{
+  "name": "Kickstart First Steps",
+  "tagline": "Notes and lessons learned during and after the Kickstart course.",
+  "body": "## Kickstart First Steps\r\n\r\n* [First Steps In Scala](https://github.com/Capibara-/kickstart-first-steps/blob/master/FirstStepsInScala.md)\r\n* [IntelliJ Workshop with Max Ribakov](https://github.com/Capibara-/kickstart-first-steps/blob/master/IntelliJ-WorkShop.md)\r\n* [Useful Commands](https://github.com/Capibara-/kickstart-first-steps/blob/master/UsefulCommands.md)\r\n* [Working with Petri](https://github.com/Capibara-/kickstart-first-steps/blob/master/Petri%20Introduction.md)\r\n* [Midnight Commander Shortcuts](https://github.com/Capibara-/kickstart-first-steps/blob/master/MC_Shortcuts.md)\r\n* [Useful Scripts](https://github.com/Capibara-/kickstart-first-steps/tree/master/scripts/)\r\n* [Staging Environments](https://github.com/Capibara-/kickstart-first-steps/blob/master/Staging.md)",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
