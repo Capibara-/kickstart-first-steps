@@ -1,5 +1,6 @@
 ## Staging Servers
 
+### General Info
 * To ssh use: `ssh root@my.staging.server.com -p41278`, password is `NEVERPUTREALPASSWORDONGITHUB`.
 * All running projects are deployed in (or symlinked to): `/opt/wix/project_name`:
 	* The configuration files are in `etc`.
@@ -12,6 +13,7 @@
 	* `sane.log` does not.
 	* Requests are in `service_name_requests.log`.
 	* Experiment results are in `service_name_wix.bi`.
+* In order to see NewRelic tracing for staging servers switch the NewRelic account (in the dashboard) to `WixStaging` and find the server and artifact you want to log. Some artifact names are appended with the server name so if a specific server is not found for a common artifact (or one you know is installed) try to find an artifact named `original-artifact-nameSTAGING_SERVER_NAME`.
 
 ### Useful Links
 * https://kb.wixpress.com/display/system/Staging+git+repositories
