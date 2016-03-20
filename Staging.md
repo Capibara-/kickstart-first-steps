@@ -13,8 +13,12 @@
 	* Requests are in `service_name_requests.log`.
 	* Experiment results are in `service_name_wix.bi`.
 
-### Chix
+### Useful Links
+* https://kb.wixpress.com/display/system/Staging+git+repositories
+* https://kb.wixpress.com/display/system/Wix+Staging
+* https://kb.wixpress.com/display/WIX/Working+with+Production+and+Staging+Environments
 
+### Chix
 * Chix is a UI that enables you to see and modify all the Wix projects that are deployed on the machine.
 * Located at `chix.stagingserverdomain.wix.com`.
 * Enables remote debugging on port `service_running_port + 2`.
