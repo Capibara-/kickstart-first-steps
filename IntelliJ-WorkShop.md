@@ -24,7 +24,7 @@
 | Show Diff (In VC window)            | `Cmd + D`|
 | Commit Changes (In VC window)       | `Cmd + K`|
 | Close Window (In VC window)         | `Cmd + W`|
-| Duplicate Line                      | Cmd + D|
+| Duplicate Line                      | `Cmd + D`|
 | Move Line Up/Down                   | `Cmd + Shift + Up/Down`|
 | Delete Line                         | `Cmd + Delete`|
 | Cut Line                            | `Cmd + X`|
