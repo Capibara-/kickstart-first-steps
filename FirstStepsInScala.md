@@ -144,9 +144,7 @@
   * Calling `future` on a piece of code tells the Scala scheduler to run that code
     on a different thread. What returns is a box that will contain the value of
     the computation SOMETIME later.
-  
-  * A Future can be in 1 of three states: not done yet, done, threw an exception.
-  
+    
   * Don't use .get() on a Future, it can cause a blocking operation.
 
   * Future offers a few tools that enable work without blocking:
