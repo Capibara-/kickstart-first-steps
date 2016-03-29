@@ -43,3 +43,4 @@
 | Refactor This                       | `Ctrl + T`|
 | Run Class in Scope                  | `Ctrl + Shift + R`|
 | Show Type Info 						  | `Ctrl + Shift + P`|
+| Show Implicit Conversion Methods 	  | `Ctrl + Q`|
