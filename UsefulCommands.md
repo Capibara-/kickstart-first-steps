@@ -36,3 +36,9 @@
 * URL decoding and encoding:
 	* decode: `python -c "import sys, urllib as ul; retval = ul.unquote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a single argument.\"; print retval" <MY_STRING>`
 	* encode: `python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print retval" <MY_STRING>`
+
+	
+* Generate dependency graph for a specific pom.xml (formats other than DOT can also be used):
+	```
+	mvn dependency:tree -DoutputType=dot -DoutputFile=dependency.dot
+	```
