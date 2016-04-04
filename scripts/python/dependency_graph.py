@@ -41,12 +41,9 @@ def main():
 
 def is_wix_edge(edge):
     search_terms = sys.argv[2].split(',')
-    return reduce(lambda x,y: x and y, map(is_relevant_edge(), search_terms))
-
-
-def is_relevant_edge(search_term):
-    return search_term in edge.get_source() and search_term in edge.get_destination()
-
+    return reduce(lambda x,y: x and y,
+                  map(lambda x: x in edge.get_source() and x in edge.get_destination(),
+                      search_terms))
 
 def add_file_to_graph(file_path, final_graph):
     print "[+] Loading graph from: {}.".format(file_path)
