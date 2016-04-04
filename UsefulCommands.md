@@ -46,7 +46,7 @@
 		```
 		
 * Delete all files with extention `.ext` recursively:
-* 
-```
-find /path/to/delete/from -name '*.ext' -delete
-```
+
+	```
+	find /path/to/delete/from -name '*.ext' -delete
+	```
