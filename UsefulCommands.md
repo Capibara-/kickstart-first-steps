@@ -38,7 +38,15 @@
 	* encode: `python -c "import sys, urllib as ul; retval = ul.quote_plus(sys.argv[1]) if len(sys.argv) == 2 else \"Please pass a a single argument.\"; print retval" <MY_STRING>`
 
 	
-* Generate dependency graph for a specific pom.xml (formats other than DOT can also be used):
-	```
-	mvn dependency:tree -DoutputType=dot -DoutputFile=dependency.dot
-	```
+* Generate dependency graph for a project (formats other than DOT can also be used):
+	1. Go to the topmost project directory.
+	2. Run the command in order to create a `dependency.dot` file for each project.
+		```
+		mvn dependency:tree -DoutputType=dot -DoutputFile=dependency.dot -Dincludes=com.wix.*,com.wixpress.*
+		```
+		
+* Delete all files with extention `.ext` recursively:
+* 
+```
+find /path/to/delete/from -name '*.ext' -delete
+```
