@@ -4,13 +4,25 @@ import fnmatch
 import os
 
 
+# ________                                   .___                             ________                                   __
+# \______ \   ____ ______   ____   ____    __| _/____   ____   ____ ___.__.  /  _____/  ____   ____   ________________ _/  |_  ___________
+#  |    |  \_/ __ \\____ \_/ __ \ /    \  / __ |/ __ \ /    \_/ ___<   |  | /   \  ____/ __ \ /    \_/ __ \_  __ \__  \\   __\/  _ \_  __ \
+#  |    `   \  ___/|  |_> >  ___/|   |  \/ /_/ \  ___/|   |  \  \___\___  | \    \_\  \  ___/|   |  \  ___/|  | \// __ \|  | (  <_> )  | \/
+# /_______  /\___  >   __/ \___  >___|  /\____ |\___  >___|  /\___  > ____|  \______  /\___  >___|  /\___  >__|  (____  /__|  \____/|__|
+#         \/     \/|__|        \/     \/      \/    \/     \/     \/\/              \/     \/     \/     \/           \/
+#
+# This script will generate a dependency tree png via maven given a few search terms for the graph nodes, it works
+# by generating a graph for each module and then aggregating only the nodes (and consequently edges) that contain
+# the given search terms.
+
+
 DOT_FILENAME = "dependency.dot"
 INCLUDED_PACKAGES = "com.wix.*,com.wixpress.*"
 OUTPUT_IMAGE_NAME = "graph.png"
 
 def main():
     if len(sys.argv) != 3:
-        print "Usage: {} <main_module_dir> <comma_separated_strings>".format(sys.argv[0])
+        print "Usage: {} <main_module_dir> <comma_separated_search_strings>".format(sys.argv[0])
         return
 
 
@@ -39,10 +51,10 @@ def main():
     graph.write_png(output_path)
 
 
-def is_wix_edge(edge):
+def is_relevant_nodes(edge):
     search_terms = sys.argv[2].split(',')
-    return reduce(lambda x,y: x and y,
-                  map(lambda x: x in edge.get_source() and x in edge.get_destination(),
+    return reduce(lambda (x,y), (w,z): (x or w, y or z),
+                  map(lambda x: (x in edge.get_source(), x in edge.get_destination()),
                       search_terms))
 
 def add_file_to_graph(file_path, final_graph):
@@ -54,16 +66,16 @@ def add_file_to_graph(file_path, final_graph):
                      final_graph.get_edges())
 
     for edge in graph.get_edges():
-        if is_wix_edge(edge):
+        (src_relevant, dst_relevant) = is_relevant_nodes(edge)
 
-            if edge.get_source() not in node_names:
-                final_graph.add_node(pydot.Node(edge.get_source()))
+        if src_relevant and (edge.get_source() not in node_names):
+            final_graph.add_node(pydot.Node(edge.get_source()))
 
-            if edge.get_destination() not in node_names:
-                final_graph.add_node(pydot.Node(edge.get_destination()))
+        if dst_relevant and (edge.get_destination() not in node_names):
+            final_graph.add_node(pydot.Node(edge.get_destination()))
 
-            if (edge.get_source(), edge.get_destination()) not in edge_names:
-                final_graph.add_edge(pydot.Edge(edge.get_source(), edge.get_destination()))
+        if src_relevant and dst_relevant and (edge.get_source(), edge.get_destination()) not in edge_names:
+            final_graph.add_edge(pydot.Edge(edge.get_source(), edge.get_destination()))
 
 
 if __name__ == "__main__":
