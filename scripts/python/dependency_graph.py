@@ -26,7 +26,7 @@ def main():
         return
 
 
-    graph = pydot.Dot(graph_type='digraph')
+    graph = pydot.Dot(graph_type='digraph', rankdir='LR')
     project_dir = sys.argv[1]
 
 
