@@ -6,6 +6,10 @@
 
 * Copy output of command to clipboard: `SOME_COMMAND | tee >(pbcopy)`.
 * Prettify JSON: `echo '{"name": "Samar", "country": "Nepal"}' | python -m json.tool`.
+* * Prettify JSON into a file and open it in Sublime Text: 
+	```
+	pbpaste | python -m json.tool > /tmp/formatted.json && subl /tmp/formatted.json
+	```
 * See raw HTTP request: `echo -e HTTP/1.1 200 OK\\nConnection: close\\n\\nHello World | nc -v -l 8000` then perform an HTTP request to `http://localhost:8000`.
 * Show full path in Finder header:
 
