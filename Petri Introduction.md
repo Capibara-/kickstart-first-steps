@@ -2,6 +2,7 @@
 ## Introduction
 
 * [Petri FAQ](https://kb.wixpress.com/pages/viewpage.action?title=Petri&spaceKey=hoopoe)
+* [Training Videos](https://kb.wixpress.com/display/hoopoe/Training+Material)
 * Petri can be used for feature toggles (by devs) and for A/B testing (product).
 * There are 2^N different rendering possibilities for a user, either A or B for each experiment.
 
