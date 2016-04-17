@@ -49,4 +49,5 @@
 ### Sublime Text Shortcuts
 | Action | Keys |
 | --- | --- |
-|Goto Closing Bracket | `Ctrl + M` |
+| Goto Closing Bracket | `Ctrl + M` |
+| Change Syntax		   | `Cmd + Shift + P` |
