@@ -44,3 +44,9 @@
 | Run Class in Scope                  | `Ctrl + Shift + R`|
 | Show Type Info 						  | `Ctrl + Shift + P`|
 | Show Implicit Conversion Methods 	  | `Ctrl + Q`|
+
+
+### Sublime Text Shortcuts
+| Action | Keys |
+| --- | --- |
+|Goto Closing Bracket | `Ctrl + M` |
