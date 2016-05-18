@@ -44,6 +44,7 @@
 | Run Class in Scope                  | `Ctrl + Shift + R`|
 | Show Type Info 						  | `Ctrl + Shift + P`|
 | Show Implicit Conversion Methods 	  | `Ctrl + Q`|
+| Copy Full Class Name 	  				  | `Ctrl + Cmd + Alt + C`|
 
 
 ### Sublime Text Shortcuts
