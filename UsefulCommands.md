@@ -54,3 +54,15 @@
 	```
 	find /path/to/delete/from -name '*.ext' -delete
 	```
+	
+* Grep through an entire directory:
+
+	```
+	grep -nr string my_directory
+	```
+	
+* Favourite aliases in one liner:
+
+	```
+	alias ll='ls -al';alias cd..='cd ..';alias l='ls'
+	```
