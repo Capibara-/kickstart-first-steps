@@ -50,24 +50,24 @@ read -n4 -p $'
 ->' CMD_IN
 
 VER_CMD="curl http://$APP:$APP_PORT/$APP_NAME/app-info/app-data"
-IS_ALIVE_CMD="curl http://www.$APP/$APP_NAME/health/is_alive"
+IS_ALIVE_CMD="curl http://$APP:$APP_PORT/$APP_NAME/health/is_alive"
 REMOVE_LOCK_CMD="rm /tmp/chef.lock_com.wixpress.$APP_NAME"
 LOCK_CMD="echo \"something\" > /tmp/chef.lock_com.wixpress.$APP_NAME"
 IS_LOCKED_CMD="test -f /tmp/chef.lock_com.wixpress.$APP_NAME && echo locked || echo NOT locked"
 CHEF_CMD="/opt/wixpress/scripts/run_chef_solo.sh"
 SYNC_SPECS_CMD="curl -X POST http://$APP:$APP_PORT/$APP_NAME/sync-specs"
-WHAT_IS_INSTALLED="tail -100 /opt/pci-chef/nodes/$APP.json"
+WHAT_IS_INSTALLED="ls -1a /opt/wix"
 
 CMD_RESULT=""
 case $CMD_IN in
   1) `ssh -t root@$APP "sudo -s $CHEF_CMD"` ;;
-  2) echo $VER_CMD ;;
+  2) $VER_CMD ;;
   3) $IS_ALIVE_CMD;; 
   4) `ssh root@$APP "$LOCK_CMD"` ;;
   5) `ssh root@$APP "$REMOVE_LOCK_CMD"`;;
   6) CMD_RESULT=`ssh root@$APP "$IS_LOCKED_CMD"`;;
   7) $SYNC_SPECS_CMD ;;
-  8) `ssh -t $APP "sudo -s $WHAT_IS_INSTALLED" > /tmp/1.txt` && cat /tmp/1.txt | grep com.wixpress ;;
+  8) `ssh -t root@$APP "$WHAT_IS_INSTALLED" > /tmp/1.txt` && cat /tmp/1.txt | grep com.wixpress ;;
   *) echo $'\n non valid input. run again' && exit 1;;
 esac
 echo ""
