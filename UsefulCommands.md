@@ -66,3 +66,15 @@
 	```
 	alias ll='ls -al';alias cd..='cd ..';alias l='ls'
 	```
+	
+* Most recent file in directory:
+
+	```
+	ls -Art | tail -n 1
+	```
+	
+* See changes in file live:
+
+	```
+	tail -f FILENAME
+	```
