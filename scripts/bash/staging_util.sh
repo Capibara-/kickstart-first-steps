@@ -4,14 +4,14 @@
 
 if [ $# -ne 2 ]
   then
-    echo "[*] Usage: $0 <artifact_name> <port_number>"
+    echo "[*] Usage: $0 <artifact_name> <service_port_number>"
     exit 1
 fi
 
 clear
 echo "[*] Staging Tools"
 read -n4 -p $'
-[*] Enter app server [5-10]
+[*] Enter app server [1-7]
 1)  pizza
 2)  glida
 3)  munchie
@@ -38,7 +38,7 @@ case $APP_IN in
 esac
 
 read -n4 -p $'
-[*] Enter command[1-7] (can take few seconds to run)
+[*] Enter command [1-8] (can take few seconds to run)
 1) chef-client
 2) which version
 3) is alive?
