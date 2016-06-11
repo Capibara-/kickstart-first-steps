@@ -78,3 +78,9 @@
 	```
 	tail -f FILENAME
 	```
+	
+* Display free space for all partitions:
+
+	```
+	df -h
+	```
