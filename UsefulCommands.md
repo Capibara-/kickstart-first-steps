@@ -84,3 +84,9 @@
 	```
 	df -h
 	```
+	
+* Convert hex IP to decimal dot notation:
+
+	```
+	python -c "import sys;b=sys.argv[1].replace('0x','');print('.'.join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))" IP_AS_HEX_STRING
+	```
