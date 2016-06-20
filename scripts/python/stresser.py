@@ -1,11 +1,11 @@
 #!/usr/bin/env python  
-
+import treq
+import sys
+import random
 from twisted.internet import reactor, task  
 from twisted.web.client import HTTPConnectionPool  
-import treq  
-import random  
 from datetime import datetime
-from twisted.internet.error import ConnectBindError
+from twisted.internet.error import ConnectBindError, ConnectError, ConnectionLost, ConnectionDone
 
 req_generated = 0  
 req_made = 0  
@@ -37,32 +37,38 @@ def request_done(response):
     deferred.addCallback(body_received)
     return deferred
 
-# TODO: Figure out how to hide the exceptions that are generated.
-def request():  
-    deferred = treq.get('http://127.0.0.1:8000')
+def request(url):  
+    deferred = treq.get(url)
     deferred.addErrback(error_handler)
-    deferred.addCallback(request_done)
     return deferred
 
-def requests_generator():  
+def requests_generator(url):  
     global req_generated
     while True:
-        deferred = request()
+        deferred = request(url)
         req_generated += 1
         # do not yield deferred here so cooperator won't pause until
         # response is received
         yield None
 
-# TODO: This does not handle shit, fix it.
 def error_handler(failure):
-    failure.trap(ConnectBindError)
+    failure.trap(Exception)
 
-if __name__ == '__main__':  
+def main():
+    if len(sys.argv) != 2:
+        print "Usage: {} <URL>".format(sys.argv[0])
+        return
+
+    url = sys.argv[1]
+
     # make cooperator work on spawning requests
-    cooperator.cooperate(requests_generator())
+    cooperator.cooperate(requests_generator(url))
 
     # run the counter that will be reporting sending speed once a second
     reactor.callLater(1, counter)
 
     # run the reactor
     reactor.run()
+
+if __name__ == '__main__':  
+    main()
