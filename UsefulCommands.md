@@ -90,3 +90,10 @@
 	```
 	python -c "import sys;b=sys.argv[1].replace('0x','');print('.'.join(map(lambda x: str(int(x, 16)), [b[i:i+2] for i in range(0,len(b), 2)])))" IP_AS_HEX_STRING
 	```
+	
+	
+* Increase heap size for JVM (both for javac and zinc):
+* 
+	```
+	export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
+	```

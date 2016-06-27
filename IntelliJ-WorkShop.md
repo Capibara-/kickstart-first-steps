@@ -2,6 +2,7 @@
 
 * Install [Paste](https://itunes.apple.com/us/app/paste-clipboard-history-manager/id967805235?mt=12)!!
 * Improving IntelliJ - [https://wix.dapulse.com/posts/2268729](https://wix.dapulse.com/posts/2268729)
+* In order to change the JVM paramaters for **IntelliJ**: `Help | Edit Custom Properties or Help | Edit Custom VM Options`.
 
 ### Important Shortcurts:
 
