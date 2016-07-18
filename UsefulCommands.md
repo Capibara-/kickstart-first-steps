@@ -93,7 +93,13 @@
 	
 	
 * Increase heap size for JVM (both for javac and zinc):
-* 
+
 	```
 	export JAVA_OPTS="-Xms2200m -Xmx8192m -XX:MaxPermSize=1024m"
+	```
+	
+* Cut N lines from file into another file:
+
+	```
+	head -<N> input > output && sed -i '1,+<N-1>d' input
 	```
