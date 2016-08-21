@@ -101,5 +101,10 @@
 * Cut N lines from file into another file:
 
 	```
-	head -<N> input > output && sed -i '1,+<N-1>d' input
+	head -<N> input > output && tail -n +<N> input > output_2
+	```
+* Count number of files of type `ext` in current folder recursively:
+
+	```
+	find . -type f -name '*.ext' | wc -l
 	```
