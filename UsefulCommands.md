@@ -108,3 +108,8 @@
 	```
 	find . -type f -name '*.ext' | wc -l
 	```
+* To start maven from the latest failed module (maven will usually write the last module name as the last line of output):
+
+	```
+	mvn clean install -rf :<last-module-name>
+	```
