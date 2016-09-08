@@ -113,3 +113,9 @@
 	```
 	mvn clean install -rf :<last-module-name>
 	```
+	
+* To get a heap dump from a JVM, find the relevant PID:
+
+	```
+	sudo jmap -dump:format=b,file=heap_dump.bin -F <PID>
+	```
