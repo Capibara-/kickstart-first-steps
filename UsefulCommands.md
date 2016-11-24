@@ -119,3 +119,8 @@
 	```
 	sudo jmap -dump:format=b,file=heap_dump.bin -F <PID>
 	```
+	
+* To browse through history use `Ctrl + R`, to exit hit `Ctrl + G`.
+
+* To gracefully exit SSH session use `Ctrl + D` to send EOF to stding on remote bash and trigger gracefull shutdown.
+* To debug SSL connection: `openssl s_client -connect my.secure.server.com:443`.
