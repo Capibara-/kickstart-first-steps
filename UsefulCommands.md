@@ -124,3 +124,4 @@
 
 * To gracefully exit SSH session use `Ctrl + D` to send EOF to stding on remote bash and trigger gracefull shutdown.
 * To debug SSL connection: `openssl s_client -connect my.secure.server.com:443`.
+* To get the N'th colums of a file seperated by any char (assuming comma for the example): `awk -F',' '{print $N}' myfile.txt`.
