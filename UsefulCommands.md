@@ -126,3 +126,4 @@
 * To debug SSL connection: `openssl s_client -connect my.secure.server.com:443`.
 * To get the N'th colums of a file seperated by any char (assuming comma for the example): `awk -F',' '{print $N}' myfile.txt`.
 * Decode `X-Seen-By` header given URL: `x-seen-by $(http www.wix.com/website/templates --headers | grep X-Seen-By | awk '{print $2}')`
+* In SublimText when to jump to closest closing bracket use `Ctrl + M`.
