@@ -29,61 +29,58 @@
         
 
 * **Pattern Matching**:
-      * When using pattern matching a variable name starting with a capital letter
+
+    * When using pattern matching a variable name starting with a capital letter
           is treated as a constant and not a variable.
 
-      * Constructor parameters: It is possible to match a constructor call
+    * Constructor parameters: It is possible to match a constructor call
           with a variable, the match will occur if the object can be constructed
           using that specific case (can be used in conjunction with wildcard).
 
-      * When matching a sequence pattern it is idiomatic in Scala to use
+    * When matching a sequence pattern it is idiomatic in Scala to use
           `::` (rather than constructor matching with a wildcard).
 
-      * Using tuple patterns it is possible to de-structure a list (or tuple)
+    * Using tuple patterns it is possible to de-structure a list (or tuple)
           using:
           
-          ```
           val List(a,b,c) = myList
           val (a,b,c) = myTuple
-          ```
           
 
-      * It is also possible to match by the type of the object being matched.
+    * It is also possible to match by the type of the object being matched.
 
-      * The JVM does type erasure so matching a Map with concrete key and values
+    * The JVM does type erasure so matching a Map with concrete key and values
           (rather than wildcards/vars) types will return true regardless of the concrete types.
 
-      * It is possible to bind a variable inside a match using `@`:
+    * It is possible to bind a variable inside a match using `@`:
              
-              expr match {
-                case List(1, e @ 2) => e*2
-                _ => -1
-              }
+          expr match {
+              case List(1, e @ 2) => e*2
+              _ => -1
+          }
               
 
-      * It is possible to include an if in a case match.
+    * It is possible to include an if in a case match.
 
-      * When defining a sealed class extending it is only possible in The
+    * When defining a sealed class extending it is only possible in The
           same .scala file. Also when using a sealed class the compiler will
           throw compile errors when a match is not exhaustive.
 
-      * It is possible to de-construct an `Option[T]` using:
+    * It is possible to de-construct an `Option[T]` using:
           
-          ```
           Some(s) => s
           None => "wtf"
-          ```
 
-      * It is possible to define variables using patterns (similar to constructor
+    * It is possible to define variables using patterns (similar to constructor
           parameters):
           
               
               val exp = new MyClass(p1, p2, p3)
               val MyClass(a1, a2, a3) = exp
               
-          Will bind a1, a2, a3 to p1, p2, p3.
+        Will bind a1, a2, a3 to p1, p2, p3.
 
-      * It is possible to use pattern matching in for expressions to iterate
+    * It is possible to use pattern matching in for expressions to iterate
           over all key-value pairs os a `Map[T1,T2]`.
 
 * **Actors (DEPRECATED)**:
