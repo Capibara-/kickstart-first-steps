@@ -185,9 +185,6 @@
 * You can rename a package when importing (like python's "import A.b as B"): `import A.{ b => B }`. This will hide the original name so A.b is no longer accessible.
 
 * It is also possible to exclude a specific sub-package from being imported when importing the entire package: `import A.{WilNotBeImported => _, _}`.
-
-* When working with `Option[T]` foreach is eagerly evaluated and does not return
-    a value while `map()` is lazily evaluated and does return a value.
     
 * It is possible to define functions inside other classes/functions and avoid creating a private method.
 
